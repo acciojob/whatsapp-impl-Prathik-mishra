@@ -84,6 +84,7 @@ public class WhatsappRepository {
     public int sendMessage(Message message, User sender, Group group){
         List<Message> list = groupMessageMap.get(group);
         list.add(message);
+        senderMap.put(message,sender);
         return list.size();
     }
 
