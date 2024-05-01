@@ -35,7 +35,7 @@ public class WhatsappService {
         //Throw "Group does not exist" if the mentioned group does not exist
         //Throw "You are not allowed to send message" if the sender is not a member of the group
         if(!whatsappRepository.isPresent(group)){
-            throw new Exception("Group does not exists");
+            throw new Exception("Group does not exist");
         }
         List<User> users = whatsappRepository.getGroupUsersList(group);
         if(!users.contains(sender)){
@@ -50,7 +50,7 @@ public class WhatsappService {
         //Throw "Approver does not have rights" if the approver is not the current admin of the group
         //Throw "User is not a participant" if the user is not a part of the group
         if(!whatsappRepository.isPresent(group)){
-            throw new Exception("Group does not exists");
+            throw new Exception("Group does not exist");
         }
         User admin = whatsappRepository.getAdmin(group);
         if(!admin.equals(approver)){
@@ -58,7 +58,7 @@ public class WhatsappService {
         }
         List<User> users = whatsappRepository.getGroupUsersList(group);
         if(!users.contains(user)){
-            throw new Exception("You are not allowed to send message");
+            throw new Exception("User is not a participant");
         }
         return whatsappRepository.changeAdmin(approver, user, group);
     }

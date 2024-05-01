@@ -44,7 +44,7 @@ public class WhatsappRepository {
         int length = users.size();
         Group group = new Group();
         if(length > 2){
-            String groupName = "group"+count;
+            String groupName = "group "+count;
             group.setName(groupName);
             group.setNumberOfParticipants(length);
             groupUserMap.put(group,list);
